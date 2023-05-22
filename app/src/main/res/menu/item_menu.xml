@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="홈"/>
+    <item
+        android:id="@+id/offer"
+        android:icon="@drawable/baseline_card_travel_24"
+        android:title="채용"/>
+    <item
+        android:id="@+id/chatting"
+        android:icon="@drawable/baseline_message_24"
+        android:title="커뮤니티"/>
+    <item
+        android:id="@+id/Yuser"
+        android:icon="@drawable/baseline_person_24"
+        android:title="마이페이지"/>
+
+    <item
+        android:id="@+id/bookmark"
+        android:title="북마크"
+        android:icon="@drawable/baseline_bookmark_24"/>
+</menu>
