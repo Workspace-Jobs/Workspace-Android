@@ -4,23 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".component.HomeActivity">
+    tools:context=".user.bookmarkActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/head"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/mid_bottom"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mid_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        app:layout_constraintTop_toBottomOf="@id/head"/>
+        android:layout_height="match_parent"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -33,5 +21,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/item_menu"
         tools:ignore="MissingConstraints" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

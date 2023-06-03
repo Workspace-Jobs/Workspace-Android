@@ -7,25 +7,28 @@
     tools:context=".component.comment_Activity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="horizontal">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_clear_24"
+            android:src="@drawable/baseline_clear_24" />
 
-            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="글 작성하기"/>
+            android:text="글 작성하기" />
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout">
 
         <EditText
             android:layout_width="wrap_content"
@@ -40,11 +43,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="내용을 작성해주세요" />
+
     </LinearLayout>
+
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="등록하기"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="17dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

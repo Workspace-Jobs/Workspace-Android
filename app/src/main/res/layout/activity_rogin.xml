@@ -11,40 +11,52 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:src="@drawable/image"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="110dp"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="110dp">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textSize="24dp"
             android:text="채용의 모든것 워크 스페이스" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:gravity="center"
             android:text="우주만큼 넣은 채용시장, 위크스페이스에서 살펴주세요!" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
+        android:layout_marginTop="56dp"
         android:orientation="vertical"
         android:textAlignment="center"
-        tools:layout_editor_absoluteY="203dp"
-        tools:ignore="MissingConstraints">
+
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,9 +65,9 @@
 
         <EditText
             android:id="@+id/join_password"
-            android:layout_width="wrap_content"
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_gravity="center"
             android:ems="10"
             android:hint="Enter your Email"
             android:inputType="textPassword" />
@@ -67,9 +79,10 @@
 
         <EditText
 
-            android:layout_width="wrap_content"
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="24sp"
+            android:layout_gravity="center"
             android:ems="10"
             android:hint="Enter your Password"
             android:inputType="textPassword" />
@@ -80,9 +93,10 @@
             android:text="Email" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="24sp"
+            android:layout_gravity="center"
             android:ems="10"
             android:hint="Check Password"
             android:inputType="textPassword" />
@@ -93,9 +107,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="483dp"
-        tools:ignore="MissingConstraints">
+
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-16dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
