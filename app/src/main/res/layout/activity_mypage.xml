@@ -68,7 +68,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:itemIconTint="@drawable/select_menu_color"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintBottom_toTopOf="@+id/page_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +84,9 @@
         android:orientation="vertical"
 
         app:layout_constraintBottom_toTopOf="@id/work"
-        app:layout_constraintTop_toBottomOf="@+id/navigationView">
+        app:layout_constraintTop_toBottomOf="@+id/navigationView"
+        app:layout_constraintVertical_bias="0.043"
+        tools:layout_editor_absoluteX="-16dp">
 
         <TextView
             android:id="@+id/my_activity"
@@ -118,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintBottom_toTopOf="@+id/page_bottom"
         app:layout_constraintTop_toBottomOf="@+id/management"
         >
 
@@ -126,7 +128,7 @@
             android:id="@+id/my_workspace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="내 활동" />
+            android:text="계정관리" />
 
         <View
             android:layout_width="match_parent"
@@ -136,7 +138,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="내 게시물" />
+            android:text="알림설정" />
 
         <View
             android:layout_width="match_parent"
@@ -146,7 +148,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="북마크관리" />
+            android:text="로그아웃" />
     </LinearLayout>
 
     <LinearLayout
@@ -154,16 +156,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:orientation="vertical"
+        android:layout_marginBottom="172dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        >
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/page_bottom"
+        tools:layout_editor_absoluteX="-16dp">
 
         <TextView
             android:id="@+id/my_management"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="내 활동" />
+            android:text="내 구직관리" />
 
         <View
             android:layout_width="match_parent"
@@ -173,7 +176,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="내 게시물" />
+            android:text="지원서" />
 
         <View
             android:layout_width="match_parent"
@@ -183,11 +186,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="북마크관리" />
+            android:text="이력서" />
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+        android:id="@+id/page_bottom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:itemIconTint="@drawable/select_menu_color"

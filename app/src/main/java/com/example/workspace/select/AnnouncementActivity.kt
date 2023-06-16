@@ -1,4 +1,4 @@
-package com.example.workspace.component
+package com.example.workspace.select
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -6,31 +6,30 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.workspace.MainActivity
 import com.example.workspace.R
-import com.example.workspace.select.AnnouncementActivity
+import com.example.workspace.component.HomeActivity
+import com.example.workspace.component.Profile
+import com.example.workspace.component.ProfileAdapter
+import com.example.workspace.component.commentActivity
 import com.example.workspace.user.bookmarkActivity
 import com.example.workspace.user.mypageActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class HomeActivity : AppCompatActivity() {
+class AnnouncementActivity : AppCompatActivity() {
 
     lateinit var profileAdapter: ProfileAdapter
-    lateinit var headerAdapter: ProfileAdapter
     private val data = mutableListOf<Profile>()
-    lateinit var maincolumn: RecyclerView
-    @SuppressLint("MissingInflatedId")
+    lateinit var listbook: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_announcement)
 
-        maincolumn = findViewById(R.id.maincolumn)
+
+        listbook = findViewById(R.id.list_book)
         initRecycler()
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.home_bottom)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.announcement_bottom)
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
@@ -44,7 +43,7 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.chatting -> {
-                    val intent = Intent(this, CommunityActivity::class.java)
+                    val intent = Intent(this, commentActivity::class.java)
                     startActivity(intent)
                     true
                 }
@@ -61,16 +60,14 @@ class HomeActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
-
     }
     private fun initRecycler() {
-        profileAdapter  = ProfileAdapter(this)
+        profileAdapter = ProfileAdapter(this)
 
-        maincolumn.adapter = profileAdapter
+        listbook.adapter = profileAdapter
 
         val gridLayoutManager = GridLayoutManager(this, 2) // 열의 개수를 2로 지정하고자 한다면, 숫자를 변경해주시면 됩니다.
-        maincolumn.layoutManager = gridLayoutManager
+        listbook.layoutManager = gridLayoutManager
 
         profileAdapter.datas.apply {
             add(Profile(img = R.drawable.ic_launcher_background, name = "mary", city = "서울특별시", area = "강남구"))
@@ -79,20 +76,7 @@ class HomeActivity : AppCompatActivity() {
             add(Profile(img = R.drawable.ic_launcher_background, name = "ruby", city = "서울특별시", area = "마포구"))
             add(Profile(img = R.drawable.ic_launcher_background, name = "yuna", city = "인천광역시", area = "마계"))
         }
-
+        Log.d("datas", data.toString())
         profileAdapter.notifyDataSetChanged()
-
-        val headerList = findViewById<RecyclerView>(R.id.header_list)
-        headerAdapter = ProfileAdapter(this)
-        headerList.adapter = headerAdapter
-        headerList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
-        val headerData = mutableListOf<Profile>()
-        headerData.add(Profile(img = R.drawable.ic_launcher_background, name = "header1", city = "도시1", area = "지역1"))
-        headerData.add(Profile(img = R.drawable.ic_launcher_background, name = "header2", city = "도시2", area = "지역2"))
-
-        headerAdapter.datas = headerData
-        headerAdapter.notifyDataSetChanged()
     }
-
 }
