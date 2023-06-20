@@ -15,17 +15,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_keyboard_arrow_left_24" />
+            android:layout_width="100sp"
+            android:layout_height="80sp"
+            android:src="@drawable/logo" />
 
-        <TextView
-            android:id="@+id/textList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="북마크"
-            android:textSize="18sp" />
+
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -33,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="#EFF5FF"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/maincolumn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +48,9 @@
         android:orientation="vertical"
         tools:listitem="@layout/item_list"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        />
+        app:layout_constraintHorizontal_bias="0.5"
+
+    />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/home_bottom"

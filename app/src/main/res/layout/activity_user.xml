@@ -8,11 +8,11 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/baseline_account_circle_24" />
+        android:src="@drawable/baseline_person_24" />
     <TextView
         android:id="@+id/scode_profile"
         android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
                 android:id="@+id/name_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chris Morris"
+                android:text="김민준"
                 android:textSize="26sp"
                 android:textColor="@color/black"/>
 
@@ -72,14 +72,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone"
+                android:text="직무"
                 android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/phone_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+91-999999999"
+                android:text="안드로이드 직무"
                 android:textSize="26sp"
                 android:textColor="@color/black"/>
 
@@ -118,18 +118,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Country"
+                android:text="제목"
                 android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/country_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="UAE"
+                android:text="야 호"
                 android:textSize="26sp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
 
     </RelativeLayout>
+
+
 </RelativeLayout>

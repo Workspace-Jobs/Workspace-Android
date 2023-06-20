@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/lastmeassed"
                     android:layout_marginTop="5dp"
-                    android:text="아휴...일하기 싫어"/>
+                    android:text="미래 사업과 최신동양"/>
             </LinearLayout>
         </LinearLayout>
         <TextView

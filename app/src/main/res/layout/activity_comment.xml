@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".component.commentActivity">
+    tools:context=".component.commentActivity"
+    android:windowSoftInputMode="adjustResize"
+    >
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -22,13 +24,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_clear_24"
-            />
+            android:clickable="true"
+            android:onClick="onBackButtonClicked" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="글 작성하기"
-            android:textSize="30sp"/>
+            android:layout_gravity="center"
+            android:textSize="28sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -46,7 +50,7 @@
             android:layout_marginBottom="2dp"
             android:ems="18"
             android:hint="제목을 입력해주세요"
-
+            android:id="@+id/editText"
             android:inputType="textPassword" />
 
         <EditText

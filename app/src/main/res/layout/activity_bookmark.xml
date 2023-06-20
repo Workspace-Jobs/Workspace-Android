@@ -14,17 +14,20 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_keyboard_arrow_left_24" />
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/baseline_keyboard_arrow_left_24"
+            android:clickable="true"
+            android:onClick="onBackButtonClicked"/>
 
         <TextView
             android:id="@+id/textList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="left"
             android:text="북마크"
-            android:textSize="18sp" />
+            android:textSize="28sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -38,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout9"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="2"
         tools:listitem="@layout/item_list" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
