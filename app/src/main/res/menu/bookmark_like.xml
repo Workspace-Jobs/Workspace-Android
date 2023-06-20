@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/youser_like"
+        android:icon="@drawable/baseline_favorite_border_24"
+        android:title="좋아요"></item>
+    <item
+        android:id="@+id/youser_bookmark"
+        android:icon="@drawable/baseline_bookmark_24"
+        android:title="북마크"></item>
+</menu>
