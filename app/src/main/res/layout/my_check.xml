@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout8"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/my_bookmark"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/round_shape"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_bookmark_border_24" />
+
+        <TextView
+            android:id="@+id/bookmark_coment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="좋아요"
+            tools:ignore="DuplicateIds" />
+
+        <TextView
+            android:id="@+id/bookmark_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="0"
+            tools:ignore="DuplicateIds" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/linearLayout10"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/offer_photo"
+            android:layout_width="40sp"
+            android:layout_height="30sp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_favorite_border_24"
+            tools:layout_editor_absoluteX="194dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <TextView
+            android:id="@+id/like_coment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="북마크"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="14dp"
+            tools:ignore="DuplicateIds" />
+
+        <TextView
+            android:id="@+id/like_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="0" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

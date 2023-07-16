@@ -16,23 +16,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-
-        >
+        app:layout_constraintHorizontal_bias="0.0">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_clear_24"
             android:clickable="true"
-            android:onClick="onBackButtonClicked" />
+            android:onClick="onBackButtonClicked"
+            tools:ignore="OnClick" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="글 작성하기"
             android:layout_gravity="center"
-            android:textSize="28sp"/>
+            android:textSize="24sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -50,8 +49,7 @@
             android:layout_marginBottom="2dp"
             android:ems="18"
             android:hint="제목을 입력해주세요"
-            android:id="@+id/editText"
-            android:inputType="textPassword" />
+            android:id="@+id/editText" />
 
         <EditText
             android:layout_width="match_parent"

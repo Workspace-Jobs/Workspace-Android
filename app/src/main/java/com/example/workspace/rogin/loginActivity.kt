@@ -33,7 +33,7 @@ class loginActivity : AppCompatActivity() {
         editTextPassword = findViewById(R.id.login_password)
 
         retrofit = Retrofit.Builder()
-            .baseUrl("http://13.125.207.76:8000/")
+            .baseUrl("http://13.124.44.106:8000/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.workspace.R
+import com.example.workspace.api.Profile
 import com.example.workspace.select.offerlistActivity
 
 class ProfileAdapter(private val context: Context) : RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
@@ -20,12 +21,12 @@ class ProfileAdapter(private val context: Context) : RecyclerView.Adapter<Profil
         private val txtArea: TextView = itemView.findViewById(R.id.area)
         private val imgProfile: ImageView = itemView.findViewById(R.id.offer_photo)
 
-
         fun bind(item: Profile) {
-            txtName.text = item.name
-            txtCity.text =  item.city
-            txtArea.text = item.area
-            imgProfile.setImageResource(item.img)
+            txtName.text = item.title
+            txtCity.text = item.user.location
+            txtArea.text = item.date
+
+            Glide.with(context).load(item.img1).into(imgProfile)
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, offerlistActivity::class.java)

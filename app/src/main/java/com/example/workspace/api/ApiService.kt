@@ -1,12 +1,11 @@
 package com.example.workspace.api
 
-import com.example.workspace.component.Profile
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -27,8 +26,13 @@ interface ApiService {
 //        @Field("password2") password2: String
         ): Call<SignupResponse>
 
+    @GET("EM/")
+    fun getProfiles(@Query("page") page: Int): Call<List<Profile>>
+
+    @GET("EM/{pk}")
+    fun getProfile(@Path("pk") page: Int): Call<Profile>
+
     @GET("NB/mark")
     fun getProfiles(): Call<List<Profile>>
-
 
 }

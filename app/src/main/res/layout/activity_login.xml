@@ -54,13 +54,13 @@
         android:layout_marginTop="56dp"
         android:orientation="vertical"
         android:textAlignment="center"
-
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
         tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
             android:text="Email"
             />
 
@@ -75,6 +75,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
             android:text="비밀번호" />
 
         <EditText
@@ -95,16 +96,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
 
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-16dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_button"
-            android:layout_width="match_parent"
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:backgroundTint="#699BF7"
-            android:hint="로그인하기"
             android:text="로그인하기"
             tools:layout_editor_absoluteX="21dp"
             tools:layout_editor_absoluteY="553dp" />
@@ -113,6 +115,7 @@
             android:id="@+id/textView_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
             android:hint="계정이 없으신가요? 회원가입하러 가기" />
     </LinearLayout>
 

@@ -10,7 +10,7 @@ import com.example.workspace.R
 import com.example.workspace.api.ApiService
 import com.example.workspace.component.CommunityActivity
 import com.example.workspace.component.HomeActivity
-import com.example.workspace.component.Profile
+import com.example.workspace.api.Profile
 import com.example.workspace.component.ProfileAdapter
 import com.example.workspace.rogin.loginActivity
 import com.example.workspace.select.AnnouncementActivity
@@ -77,13 +77,13 @@ class LikeActivity : AppCompatActivity() {
         likelist.layoutManager = gridLayoutManager
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.125.207.76:8000/")
+            .baseUrl("http://13.124.44.106:8000/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val apiService = retrofit.create(ApiService::class.java)
 
-        val call = apiService.getProfiles()
+        val call = apiService.getProfiles(1)
         call.enqueue(object : Callback<List<Profile>> {
             override fun onResponse(call: Call<List<Profile>>, response: Response<List<Profile>>) {
                 if (response.isSuccessful) {
@@ -94,46 +94,7 @@ class LikeActivity : AppCompatActivity() {
                     }
                 } else {
                     profileAdapter.datas.apply {
-                        add(
-                            Profile(
-                                img = R.drawable.company,
-                                name = "mary",
-                                city = "서울특별시",
-                                area = "강남구"
-                            )
-                        )
-                        add(
-                            Profile(
-                                img = R.drawable.company,
-                                name = "jenny",
-                                city = "서울특별시",
-                                area = "강남구"
-                            )
-                        )
-                        add(
-                            Profile(
-                                img = R.drawable.company,
-                                name = "jhon",
-                                city = "광주광역시",
-                                area = "북구"
-                            )
-                        )
-                        add(
-                            Profile(
-                                img = R.drawable.company,
-                                name = "ruby",
-                                city = "서울특별시",
-                                area = "마포구"
-                            )
-                        )
-                        add(
-                            Profile(
-                                img = R.drawable.company,
-                                name = "yuna",
-                                city = "인천광역시",
-                                area = "마계"
-                            )
-                        )
+
                     }
                     profileAdapter.notifyDataSetChanged()
                 }
@@ -141,46 +102,7 @@ class LikeActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<List<Profile>>, t: Throwable) {
                 profileAdapter.datas.apply {
-                    add(
-                        Profile(
-                            img = R.drawable.company,
-                            name = "mary",
-                            city = "서울특별시",
-                            area = "강남구"
-                        )
-                    )
-                    add(
-                        Profile(
-                            img = R.drawable.company,
-                            name = "jenny",
-                            city = "서울특별시",
-                            area = "강남구"
-                        )
-                    )
-                    add(
-                        Profile(
-                            img = R.drawable.company,
-                            name = "jhon",
-                            city = "광주광역시",
-                            area = "북구"
-                        )
-                    )
-                    add(
-                        Profile(
-                            img = R.drawable.company,
-                            name = "ruby",
-                            city = "서울특별시",
-                            area = "마포구"
-                        )
-                    )
-                    add(
-                        Profile(
-                            img = R.drawable.company,
-                            name = "yuna",
-                            city = "인천광역시",
-                            area = "마계"
-                        )
-                    )
+
                 }
                 profileAdapter.notifyDataSetChanged()
             }

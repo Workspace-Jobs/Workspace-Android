@@ -22,6 +22,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
+                android:id="@+id/company_pic"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="fitXY"
@@ -32,27 +33,29 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="Today Cafe"
+                app:title="프론트개발(React)"
                 app:titleTextColor="@color/white"
-                app:layout_collapseMode="pin" />
+                android:clickable="true"
+                app:layout_collapseMode="pin"
+                android:focusable="true" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
+        android:id="@+id/offer_info"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <!-- ScrollView 내부에 추가적인 뷰를 넣으세요 -->
-
             <TextView
+                android:id="@+id/company_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/export" />
@@ -64,7 +67,36 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 tools:listitem="@layout/item_list" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/book_in"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="12dp"
+                    android:backgroundTint="@color/white"
+                    android:drawableLeft="@drawable/baseline_bookmark_24"
+                    android:drawableTint="#699BF7"
+                    android:text="북마크"
+                    android:textColor="#699BF7" />
+
+                <Button
+                    android:id="@+id/to_resume"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/main_color"
+                    android:text="지원하기"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
         </LinearLayout>
+
+
     </ScrollView>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

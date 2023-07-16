@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">workspace</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="first_fragment_label" />
+    <string name="second_fragment_label" />
+    <string name="export">인연과 인연을 잇는, 상품과 소비자를 잇는, 나아가 사람과 콘텐츠를 잇는 플랫폼!
+여러분들과 함께 만들어갈 행복한 세상을 꿈꾸는 회사!
+㈜여보야는 결혼포털플랫폼, 라이브방송플랫폼, 커뮤니티플랫폼을 자체적으로 개발하고 서비스하는,
+IT업계 20년 이상의 업력과 기술력 및 경쟁력을 갖춘 광주광역시 최대 모바일 콘텐츠 기업입니다.
+
+국가 저출산정책에도 부흥하는 혁신적인 결혼중심 서비스인 여보야
+언제 어디서든 라이브방송이 가능한 달라,
+국내 최대의 커뮤니티 `club5678`
+
+* 회사홈페이지 : www.yeoboyacorp.com
+
+* 여보야 모바일: 구글 스토어, 애플 앱스토어 에서 `여보야` 검색
+* 여보야 웹: m.yeoboya.com 또는 www.yeoboya.com
+
+* 달라 모바일: 구글 스토어, 애플 앱스토어 에서 `달라` 검색
+* 달라 웹: m.dallalive.com 또는 www.dallalive.com</string>
 </resources>

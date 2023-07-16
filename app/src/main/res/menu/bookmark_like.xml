@@ -4,9 +4,9 @@
     <item
         android:id="@+id/youser_like"
         android:icon="@drawable/baseline_favorite_border_24"
-        android:title="좋아요"></item>
+        android:title="좋아요 6"></item>
     <item
         android:id="@+id/youser_bookmark"
         android:icon="@drawable/baseline_bookmark_24"
-        android:title="북마크"></item>
+        android:title="북마크 6"></item>
 </menu>

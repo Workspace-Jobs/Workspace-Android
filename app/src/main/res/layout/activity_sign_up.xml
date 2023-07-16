@@ -48,35 +48,38 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/comment"
-        >
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
             android:text="Email" />
 
         <EditText
             android:id="@+id/join_email"
             android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
             android:ems="10"
             android:hint="Enter your Email" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
             android:text="비밀번호" />
 
         <EditText
             android:id="@+id/join_password"
             android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
             android:ems="10"
             android:hint="Enter your Password"
             android:inputType="textPassword" />
@@ -84,14 +87,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
             android:text="비밀번호 재확인" />
 
         <EditText
             android:id="@+id/reconfirm"
             android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
             android:ems="10"
             android:hint="Check Password"
             android:inputType="textPassword" />
@@ -103,13 +107,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         tools:layout_editor_absoluteX="16dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/join_button"
-            android:layout_width="match_parent"
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:backgroundTint="#699BF7"
             android:hint="회원가입"
             tools:layout_editor_absoluteX="21dp"
@@ -119,6 +125,7 @@
             android:id="@+id/login_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:hint="이미 계정이 있으신가요? 로그인 하기" />
     </LinearLayout>
 

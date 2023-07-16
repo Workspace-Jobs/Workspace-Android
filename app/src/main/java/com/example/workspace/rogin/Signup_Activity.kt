@@ -38,7 +38,7 @@ class Signup_Activity : AppCompatActivity() {
 
         // Retrofit 초기화
         retrofit = Retrofit.Builder()
-            .baseUrl("http://13.125.207.76:8000/")  // 서버의 주소로 변경해야 합니다.
+            .baseUrl("http://13.124.44.106:8000/")  // 서버의 주소로 변경해야 합니다.
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

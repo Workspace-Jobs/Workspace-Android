@@ -11,7 +11,7 @@ import com.example.workspace.R
 import com.example.workspace.api.ApiService
 import com.example.workspace.component.CommunityActivity
 import com.example.workspace.component.HomeActivity
-import com.example.workspace.component.Profile
+import com.example.workspace.api.Profile
 import com.example.workspace.component.ProfileAdapter
 import com.example.workspace.rogin.loginActivity
 import com.example.workspace.user.bookmarkActivity
@@ -67,6 +67,8 @@ class AnnouncementActivity : AppCompatActivity() {
             }
         }
         bottomNavigationView.menu.findItem(R.id.offer)?.isChecked = true
+
+
     }
     private fun initRecycler() {
         profileAdapter = ProfileAdapter(this)
@@ -77,13 +79,13 @@ class AnnouncementActivity : AppCompatActivity() {
         listbook.layoutManager = gridLayoutManager
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.125.207.76:8000/")
+            .baseUrl("http://13.124.44.106:8000/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val apiService = retrofit.create(ApiService::class.java)
+        val call = apiService.getProfiles(1)
 
-        val call = apiService.getProfiles()
         call.enqueue(object : Callback<List<Profile>> {
             override fun onResponse(call: Call<List<Profile>>, response: Response<List<Profile>>) {
                 if (response.isSuccessful) {
@@ -94,12 +96,7 @@ class AnnouncementActivity : AppCompatActivity() {
                     }
                 } else {
                     profileAdapter.datas.apply {
-                        add(Profile(img = R.drawable.company, name = "안드로이드 개발자", city = "서울특별시", area = "강남구"))
-                        add(Profile(img = R.drawable.company, name = "프론트개발자", city = "서울특별시", area = "강남구"))
-                        add(Profile(img = R.drawable.company, name = "서버 개발자", city = "광주광역시", area = "북구"))
-                        add(Profile(img = R.drawable.company, name = "안드로이드 개발자", city = "서울특별시", area = "마포구"))
-                        add(Profile(img = R.drawable.company, name = "보안 전문가", city = "인천광역시", area = "마계"))
-                    }
+                        }
                     Log.d("datas", data.toString())
                     profileAdapter.notifyDataSetChanged()
                 }
@@ -107,12 +104,7 @@ class AnnouncementActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<List<Profile>>, t: Throwable) {
                 profileAdapter.datas.apply {
-                    add(Profile(img = R.drawable.company, name = "안드로이드 개발자", city = "서울특별시", area = "강남구"))
-                    add(Profile(img = R.drawable.company, name = "프론트개발자", city = "서울특별시", area = "강남구"))
-                    add(Profile(img = R.drawable.company, name = "서버 개발자", city = "광주광역시", area = "북구"))
-                    add(Profile(img = R.drawable.company, name = "안드로이드 개발자", city = "서울특별시", area = "마포구"))
-                    add(Profile(img = R.drawable.company, name = "보안 전문가", city = "인천광역시", area = "마계"))
-                }
+                    }
                 Log.d("datas", data.toString())
                 profileAdapter.notifyDataSetChanged()
             }

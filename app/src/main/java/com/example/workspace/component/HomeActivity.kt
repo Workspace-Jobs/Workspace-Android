@@ -4,15 +4,19 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workspace.R
 import com.example.workspace.api.ApiService
+import com.example.workspace.api.Profile
 import com.example.workspace.rogin.loginActivity
 import com.example.workspace.select.AnnouncementActivity
 import com.example.workspace.user.bookmarkActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,13 +28,14 @@ class HomeActivity : AppCompatActivity() {
     lateinit var profileAdapter: ProfileAdapter
     lateinit var headerAdapter: ProfileAdapter
     lateinit var maincolumn: RecyclerView
-    @SuppressLint("MissingInflatedId")
+    lateinit var headerList: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
         maincolumn = findViewById(R.id.maincolumn)
+        headerList = findViewById(R.id.header_list)
         initRecycler()
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.home_bottom)
@@ -68,20 +73,25 @@ class HomeActivity : AppCompatActivity() {
     }
     private fun initRecycler() {
         profileAdapter  = ProfileAdapter(this)
-
         maincolumn.adapter = profileAdapter
 
         val gridLayoutManager = GridLayoutManager(this, 2) // 열의 개수를 2로 지정하고자 한다면, 숫자를 변경해주시면 됩니다.
         maincolumn.layoutManager = gridLayoutManager
 
+        val headerLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        headerList.layoutManager = headerLayoutManager
+
+        val interceptor = HttpLoggingInterceptor { message -> Log.v("HTTP", message) }
+            .setLevel(HttpLoggingInterceptor.Level.BODY)
+        val okHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.125.207.76:8000/")
+            .baseUrl("http://13.124.44.106:8000/")
+            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val apiService = retrofit.create(ApiService::class.java)
-
-        val call = apiService.getProfiles()
+        val call = apiService.getProfiles(1)
 
         call.enqueue(object : Callback<List<Profile>> {
             override fun onResponse(call: Call<List<Profile>>, response: Response<List<Profile>>) {
@@ -93,40 +103,41 @@ class HomeActivity : AppCompatActivity() {
                     }
                 } else {
                     profileAdapter.datas.apply {
-                        add(Profile(img = R.drawable.company, name = "안드로이드 개발자", city = "서울특별시", area = "강남구"))
-                        add(Profile(img = R.drawable.company, name = "프론트개발자", city = "서울특별시", area = "강남구"))
-                        add(Profile(img = R.drawable.company, name = "서버 개발자", city = "광주광역시", area = "북구"))
-                        add(Profile(img = R.drawable.company, name = "안드로이드 개발자", city = "서울특별시", area = "마포구"))
-                        add(Profile(img = R.drawable.company, name = "보안 전문가", city = "인천광역시", area = "마계"))
                     }
-                    profileAdapter.notifyDataSetChanged()
                 }
             }
 
             override fun onFailure(call: Call<List<Profile>>, t: Throwable) {
                 profileAdapter.datas.apply {
-                    add(Profile(img = R.drawable.company, name = "안드로이드 개발자", city = "서울특별시", area = "강남구"))
-                    add(Profile(img = R.drawable.company, name = "프론트개발자", city = "서울특별시", area = "강남구"))
-                    add(Profile(img = R.drawable.company, name = "서버 개발자", city = "광주광역시", area = "북구"))
-                    add(Profile(img = R.drawable.company, name = "안드로이드 개발자", city = "서울특별시", area = "마포구"))
-                    add(Profile(img = R.drawable.company, name = "보안 전문가", city = "인천광역시", area = "마계"))
-                }
-                profileAdapter.notifyDataSetChanged()
+                    }
             }
         })
 
-        val headerList = findViewById<RecyclerView>(R.id.header_list)
-        headerAdapter = ProfileAdapter(this)
-        headerList.adapter = headerAdapter
-        headerList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
         val headerData = mutableListOf<Profile>()
-        headerData.add(Profile(img = R.drawable.company, name = "header1", city = "도시1", area = "지역1"))
-        headerData.add(Profile(img = R.drawable.company, name = "header2", city = "도시2", area = "지역2"))
-        headerData.add(Profile(img = R.drawable.company, name = "header2", city = "도시2", area = "지역2"))
-
+        headerAdapter = ProfileAdapter(this)
         headerAdapter.datas = headerData
-        headerAdapter.notifyDataSetChanged()
+        headerList.adapter = headerAdapter
+
+        val headerCall = apiService.getProfiles(1)
+
+        headerCall.enqueue(object : Callback<List<Profile>> {
+            override fun onResponse(call: Call<List<Profile>>, response: Response<List<Profile>>) {
+                if (response.isSuccessful) {
+                    val profiles = response.body()
+                    if (profiles != null) {
+                        headerData.addAll(profiles)
+                        headerAdapter.notifyDataSetChanged()
+                    } else {
+                    }
+                } else {
+                    // Handle error
+                }
+            }
+
+            override fun onFailure(call: Call<List<Profile>>, t: Throwable) {
+                // Handle failure
+            }
+        })
     }
 
 }
